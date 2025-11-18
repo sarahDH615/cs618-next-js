@@ -1,6 +1,11 @@
-export function Login() {
+'use client'
+import { useFormState } from 'react-dom'
+import PropTypes from 'prop-types'
+
+export function Login({ loginAction }) {
+  const [state, formAction] = useFormState(loginAction, {})
   return (
-    <form>
+    <form action={formAction}>
       <div>
         <label htmlFor='username'>Username: </label>
         <input text='text' name='username' id='username' />
@@ -12,6 +17,12 @@ export function Login() {
       </div>
       <br />
       <input type='submit' value='Log In' />
+      {/* if server returns error, display the error message */}
+      {state.error ? <strong> Error logging in: {state.error}</strong> : null}
     </form>
   )
+}
+
+Login.propTypes = {
+  loginAction: PropTypes.func.isRequired,
 }
