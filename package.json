@@ -19,7 +19,7 @@
     "slug": "^11.0.1"
   },
   "devDependencies": {
-    "eslint": "^8",
+    "eslint": "^9",
     "eslint-config-next": "^16.0.3"
   }
 }
